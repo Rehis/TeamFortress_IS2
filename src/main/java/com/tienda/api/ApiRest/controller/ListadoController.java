@@ -18,7 +18,7 @@ public class ListadoController {
 	}
 	
 	@RequestMapping("/")
-	public String listarVideojuegos(Model modelo){
+	public String listarArticulos(Model modelo){
 	    List<Articulo> lista = articuloService.buscarTodos();
 	    modelo.addAttribute("destacados", lista);
 	    return "listado";
