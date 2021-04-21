@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2021 a las 12:08:04
+-- Tiempo de generación: 21-04-2021 a las 17:06:37
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.2
 
@@ -24,45 +24,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `articulos`
+-- Estructura de tabla para la tabla `articulo`
 --
 
-CREATE TABLE `articulos` (
-  `Id` int(11) NOT NULL,
-  `Nombre` varchar(200) NOT NULL,
-  `Precio` double NOT NULL,
-  `Categoria` text NOT NULL,
-  `Descripcion` text DEFAULT NULL
+CREATE TABLE `articulo` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `precio` double NOT NULL,
+  `categoria` varchar(200) NOT NULL,
+  `descripcion` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `articulos`
+-- Volcado de datos para la tabla `articulo`
 --
 
-INSERT INTO `articulos` (`Id`, `Nombre`, `Precio`, `Categoria`, `Descripcion`) VALUES
-(1, 'agua', 0.6, 'Comida', 'Botella de agua'),
-(3, 'leche entera', 0.79, 'comida', 'Leche Pascual'),
-(4, 'servilletas', 0.92, 'limpieza', 'Pack de 200 servilletas');
+INSERT INTO `articulo` (`id`, `nombre`, `precio`, `categoria`, `descripcion`) VALUES
+(1, 'leche', 2.3, 'comida', 'tetarbrick de leche'),
+(2, 'huevos', 2.4, 'comida', 'pack de 12 huevos');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `articulos`
+-- Indices de la tabla `articulo`
 --
-ALTER TABLE `articulos`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE `articulo`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `articulos`
+-- AUTO_INCREMENT de la tabla `articulo`
 --
-ALTER TABLE `articulos`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `articulo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
