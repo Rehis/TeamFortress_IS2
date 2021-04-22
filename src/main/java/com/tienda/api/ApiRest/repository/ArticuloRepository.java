@@ -14,6 +14,7 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Integer>{
     @Query("from Articulo a where a.nombre like %?1%")
     List<Articulo> buscar(String nombre);
 
+    
     @Query("from Articulo a where a.categoria like %?1%")
     List<Articulo> buscarCat(String categoria);
 	

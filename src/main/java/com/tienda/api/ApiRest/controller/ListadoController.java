@@ -22,7 +22,7 @@ public class ListadoController {
 	}
 	
 	@RequestMapping("/")
-	public String listarVideojuegos(Model modelo){
+	public String listarArticulos(Model modelo){
 	    List<Articulo> lista = articuloService.buscarTodos();
 	    modelo.addAttribute("destacados", lista);
 	    return "listado";
@@ -31,7 +31,8 @@ public class ListadoController {
 	 @RequestMapping("/buscar")
 	 public String buscar(Model modelo, @RequestParam("q")String consulta) {
 	    List<Articulo> lista = articuloService.buscar(consulta);
-	    lista.addAll(recommenderService.recomendados(consulta, lista));
+	    //Prototipo de Recommender
+	    //lista.addAll(recommenderService.recomendados(consulta, lista));
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
 	 }
