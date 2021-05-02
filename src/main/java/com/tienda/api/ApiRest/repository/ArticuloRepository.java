@@ -15,9 +15,11 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Integer>{
     List<Articulo> buscar(String nombre);
 
     
-    @Query("from Articulo a where a.categoria like %?1%")
-    List<Articulo> buscarCat(String categoria);
+    @Query("from Articulo a where a.categoria in %?1%")
+    List<Articulo> buscarCat(String[] categorias);
 	
+    
+    
     /*Esta funcion hace lo mismo que buscar pero es generada por JPA automaticamente
     Esto es debido a que por el nombre findBy deduce que es busqueda con Nombre busca el parametro
     nombre y luego con Containing se encargara de aquello que contengan el nombre*/
