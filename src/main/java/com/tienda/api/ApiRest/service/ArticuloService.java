@@ -28,7 +28,7 @@ public class ArticuloService {
 	}
 	
 	public List<Articulo> filtrar(String[] categorias){
-		return articuloRepository.buscarCat(categorias);
+		return articuloRepository.filtrar(categorias);
 	}
 	
 	/*public Articulo obtenerArticulo(Integer id) {
