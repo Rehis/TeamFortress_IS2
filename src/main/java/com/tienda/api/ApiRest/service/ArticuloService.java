@@ -27,6 +27,10 @@ public class ArticuloService {
 		return articuloRepository.buscarTodos();
 	}
 	
+	public List<Articulo> filtrar(String[] categorias){
+		return articuloRepository.filtrar(categorias);
+	}
+	
 	/*public Articulo obtenerArticulo(Integer id) {
 		return articuloRepository.getOne(id);
 	}*/
