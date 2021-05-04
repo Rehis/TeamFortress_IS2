@@ -30,7 +30,7 @@ public class RecommenderService {
 	      	    if (a.getCategoria().equals(b.getCategoria())) {
 	      	    	similarity += 0.35;
 	      	    }
-	      	    if(similarity >= 0.50 && a != b && !lista.contains(b))
+	      	    if(similarity >= 0.50 && !lista.contains(b) && !lista2.contains(b))
 	            	lista2.add(b);
 	    	}
         }

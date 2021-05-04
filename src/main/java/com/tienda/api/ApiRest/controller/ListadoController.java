@@ -31,7 +31,6 @@ public class ListadoController {
 	 @RequestMapping("/buscar")
 	 public String buscar(Model modelo, @RequestParam("q")String consulta) {
 	    List<Articulo> lista = articuloService.buscar(consulta);
-	    //Prototipo de Recommender
 	    lista.addAll(recommenderService.recomendados(consulta, lista));
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
@@ -46,7 +45,7 @@ public class ListadoController {
 	 }
 	 
 	 @RequestMapping("/detalles/{q}")
-	 public String detalles(Model modelo, @PathVariable("q")String consulta) {
+	 public String detalles(Model modelo, @PathVariable("q")int consulta) {
 	    List<Articulo> lista = articuloService.buscar(consulta);
 	    modelo.addAttribute("detallesArticulo", lista);
 	    return "detallesArticulo";

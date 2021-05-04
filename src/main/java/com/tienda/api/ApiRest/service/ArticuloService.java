@@ -22,7 +22,10 @@ public class ArticuloService {
 	public List<Articulo> buscar(String nombre) {
 		return articuloRepository.buscar(nombre);
 	}
-	
+	public List<Articulo> buscar(int id) {
+		return articuloRepository.buscar(id);
+	}
+
 	public List<Articulo> buscarTodos(){
 		return articuloRepository.buscarTodos();
 	}
