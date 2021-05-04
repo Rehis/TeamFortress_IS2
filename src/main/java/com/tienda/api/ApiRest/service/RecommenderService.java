@@ -31,11 +31,9 @@ public class RecommenderService {
 	      	    	similarity += 0.35;
 	      	    }
 	      	    if(similarity >= 0.50 && a != b && !lista.contains(b))
-	            lista2.add(b);
+	            	lista2.add(b);
 	    	}
-        }	
-        
+        }
         return lista2;
     }
-
 }

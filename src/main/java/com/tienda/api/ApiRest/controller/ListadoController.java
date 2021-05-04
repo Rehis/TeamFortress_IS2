@@ -40,8 +40,7 @@ public class ListadoController {
 	 @RequestMapping("/filtrar")
 	 public String filtrar(Model modelo, @RequestParam("categoria")String[] categoria) {
 	    List<Articulo> lista = articuloService.filtrar(categoria);
-	    //Prototipo de Recommender
-	    //lista.addAll(recommenderService.recomendados(consulta, lista));
+	    //recomendador
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
 	 }
@@ -49,8 +48,6 @@ public class ListadoController {
 	 @RequestMapping("/detalles/{q}")
 	 public String detalles(Model modelo, @PathVariable("q")String consulta) {
 	    List<Articulo> lista = articuloService.buscar(consulta);
-	    //Prototipo de Recommender
-	    //lista.addAll(recommenderService.recomendados(consulta, lista));
 	    modelo.addAttribute("detallesArticulo", lista);
 	    return "detallesArticulo";
 	 }
