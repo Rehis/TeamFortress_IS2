@@ -4,7 +4,8 @@ import com.tienda.api.ApiRest.model.Articulo;
 import com.tienda.api.ApiRest.repository.ArticuloRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
+import java.util.SortedSet;
 
 @Service
 public class RecommenderService {
@@ -16,9 +17,24 @@ public class RecommenderService {
     }
 
     public List<Articulo> recomendados(String consulta, List<Articulo> lista) {
-        List<Articulo> lista2 = articuloRepository.buscar(consulta);
-        for (Articulo a : lista)
-            lista2.addAll(articuloRepository.buscarCat(a.getCategoria()));
+        ArrayList<Articulo> lista2 = new ArrayList();
+        for (Articulo a : lista) {        	
+        	for (Articulo b: articuloRepository.buscarTodos()) {
+        		double similarity = 0.0;
+	      	    if (a.getNombre().equals(b.getNombre())) {
+	      	    	similarity += 0.50;
+	      	    }
+	      	    if (a.getPrecio() == (b.getPrecio())) {
+	      	    	similarity += 0.15;
+	      	    }
+	      	    if (a.getCategoria().equals(b.getCategoria())) {
+	      	    	similarity += 0.35;
+	      	    }
+	      	    if(similarity >= 0.50 && a != b && !lista.contains(b))
+	            lista2.add(b);
+	    	}
+        }	
+        
         return lista2;
     }
 

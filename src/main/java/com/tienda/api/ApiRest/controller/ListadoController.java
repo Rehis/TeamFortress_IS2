@@ -32,7 +32,7 @@ public class ListadoController {
 	 public String buscar(Model modelo, @RequestParam("q")String consulta) {
 	    List<Articulo> lista = articuloService.buscar(consulta);
 	    //Prototipo de Recommender
-	    //lista.addAll(recommenderService.recomendados(consulta, lista));
+	    lista.addAll(recommenderService.recomendados(consulta, lista));
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
 	 }
