@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -32,9 +32,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 th:text="${articulo.nombre}" class="card-title text-center"></h5>
-							<p th:text="${articulo.precio}" class="card-text"></p>
-							<p th:text="${articulo.categoria}" class="card-text"></p>
+                            <p th:text="${articulo.precio}" class="card-text"></p>
+                            <p th:text="${articulo.categoria}" class="card-text"></p>
                             <p th:text="${articulo.descripcion}" class="card-text"></p>
+                            <!-- Cargamos la imagen -->
+                            <!--<img th:scr="${articulo.imagen}">-->
                         </div>
                     </div>
                 </div>
