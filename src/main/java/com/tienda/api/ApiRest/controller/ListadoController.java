@@ -1,14 +1,19 @@
 package com.tienda.api.ApiRest.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import com.tienda.api.ApiRest.service.RecommenderService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.tienda.api.ApiRest.model.Articulo;
 import com.tienda.api.ApiRest.service.ArticuloService;
+import com.tienda.api.ApiRest.service.RecommenderService;
+import com.tienda.api.ApiRest.util.Pair;
 
 @Controller
 public class ListadoController {
@@ -23,23 +28,36 @@ public class ListadoController {
 	
 	@RequestMapping("/")
 	public String listarArticulos(Model modelo){
-	    List<Articulo> lista = articuloService.buscarTodos();
+		List<Pair<Articulo, Boolean>> lista = new ArrayList<>();
+	    List<Articulo> buscados = articuloService.buscarTodos();
+	    lista = rec(buscados, false);
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
 	}
 	
 	 @RequestMapping("/buscar")
 	 public String buscar(Model modelo, @RequestParam("q")String consulta) {
-	    List<Articulo> lista = articuloService.buscar(consulta);
-	    lista.addAll(recommenderService.recomendados(consulta, lista));
+	    List<Pair<Articulo, Boolean>> lista = new ArrayList<>();
+	    List<Articulo> buscados = articuloService.buscar(consulta);
+	    List<Articulo> recomendados = recommenderService.recomendados(consulta, buscados);
+	    lista.addAll(rec(buscados, false));
+	    lista.addAll(rec(recomendados, true));
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
 	 }
-	 
-	 @RequestMapping("/filtrar")
+
+	private List<Pair<Articulo, Boolean>> rec(List<Articulo> items, boolean recommended) {
+		List<Pair<Articulo, Boolean>> ret = new ArrayList<>();
+		for (Articulo item : items) {
+			ret.add(new Pair<>(item, recommended));
+		}
+		return ret;
+	}
+
+	@RequestMapping("/filtrar")
 	 public String filtrar(Model modelo, @RequestParam("categoria")String[] categoria) {
 	    List<Articulo> lista = articuloService.filtrar(categoria);
-	    //recomendador
+	    //recommender
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
 	 }

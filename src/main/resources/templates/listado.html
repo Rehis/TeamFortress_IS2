@@ -31,16 +31,27 @@
         <div class='container mt-4 vj-destacados'>
             <div class='row'>
                 <div th:each="articulo : ${listado}" class='col-md-3 mb-4'>
-                    <div class="card">
+                    <div th:unless="${articulo.second}" class="card">
                         <div class="card-body">
-                            <h5 th:text="${articulo.nombre}" class="card-title text-center"></h5>
-                            <!-- <p th:text="${articulo.precio}" class="card-text"></p>
-                            <p th:text="${articulo.categoria}" class="card-text"></p>
-                            <p th:text="${articulo.descripcion}" class="card-text"></p>-->
+                            <h5 th:text="${articulo.first.nombre}" class="card-title text-center"></h5>
+                            <p th:text="${articulo.first.precio}" class="card-text"></p>
+                            <!-- <p th:text="${articulo.first.categoria}" class="card-text"></p>
+                            <p th:text="${articulo.first.descripcion}" class="card-text"></p>-->
                         </div>
                         <div class="card-footer text-muted">
-                            <a th:href='@{/detalles/{q}(q=${articulo.id})}' class="btn btn-primary vj-cent">Ver detalles</a>
-                        </div> 
+                            <a th:href='@{/detalles/{q}(q=${articulo.first.id})}' class="btn btn-primary vj-cent">Ver detalles</a>
+                        </div>
+                        <div th:if="${articulo.second}" class="card">
+                            <div class="card-body recommended">
+                                <h5 th:text="${articulo.first.nombre}" class="card-title text-center"></h5>
+                                <p th:text="${articulo.first.precio}" class="card-text"></p>
+                                <!-- <p th:text="${articulo.first.categoria}" class="card-text"></p>
+                                <p th:text="${articulo.first.descripcion}" class="card-text"></p>-->
+                            </div>
+                            <div class="card-footer text-muted">
+                                <a th:href='@{/detalles/{q}(q=${articulo.first.id})}' class="btn btn-primary vj-cent">Ver detalles</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
