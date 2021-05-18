@@ -35,24 +35,20 @@
                         <div class="card-body">
                             <h5 th:text="${articulo.first.nombre}" class="card-title text-center"></h5>
                             <p th:text="${articulo.first.precio}" class="card-text"></p>
-                            <!-- <p th:text="${articulo.first.categoria}" class="card-text"></p>
-                            <p th:text="${articulo.first.descripcion}" class="card-text"></p>-->
                         </div>
                         <div class="card-footer text-muted">
                             <a th:href='@{/detalles/{q}(q=${articulo.first.id})}' class="btn btn-primary vj-cent">Ver detalles</a>
                         </div>
-                        <div th:if="${articulo.second}" class="card">
-                            <div class="card-body recommended">
+                   </div>
+                        <div th:if="${articulo.second}" class="card recommended">
+                            <div class="card-body">
                                 <h5 th:text="${articulo.first.nombre}" class="card-title text-center"></h5>
                                 <p th:text="${articulo.first.precio}" class="card-text"></p>
-                                <!-- <p th:text="${articulo.first.categoria}" class="card-text"></p>
-                                <p th:text="${articulo.first.descripcion}" class="card-text"></p>-->
                             </div>
                             <div class="card-footer text-muted">
                                 <a th:href='@{/detalles/{q}(q=${articulo.first.id})}' class="btn btn-primary vj-cent">Ver detalles</a>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

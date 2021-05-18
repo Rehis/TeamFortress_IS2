@@ -3,7 +3,7 @@ package com.tienda.api.ApiRest.controller;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+import com.tienda.api.ApiRest.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.tienda.api.ApiRest.model.Articulo;
 import com.tienda.api.ApiRest.service.ArticuloService;
 import com.tienda.api.ApiRest.service.RecommenderService;
-import com.tienda.api.ApiRest.util.Pair;
 
 @Controller
 public class ListadoController {

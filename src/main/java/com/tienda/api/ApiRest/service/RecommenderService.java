@@ -16,7 +16,7 @@ public class RecommenderService {
     }
 
     public List<Articulo> recomendados(String consulta, List<Articulo> lista) {
-        ArrayList<Articulo> lista2 = new ArrayList();
+        ArrayList<Articulo> lista2 = new ArrayList<>();
         for (Articulo a : lista) {        	
         	for (Articulo b: articuloRepository.buscarTodos()) {
         		double similarity = 0.0;
