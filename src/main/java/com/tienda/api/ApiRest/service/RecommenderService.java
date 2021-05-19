@@ -20,18 +20,21 @@ public class RecommenderService {
         for (Articulo a : lista) {        	
         	for (Articulo b: articuloRepository.buscarTodos()) {
         		double similarity = 0.0;
-	      	    if (a.getNombre().equals(b.getNombre())) {
+        		//No hace falta comparar el nombre, porque si hay alguna coincidencia [%?1%] aparece en la búsqueda.
+	      	    /*if (a.getNombre().equals(b.getNombre())) {
 	      	    	similarity += 0.50;
-	      	    }
-	      	    //precio
-	      	    similarity += priceSimilarity(a.getPrecio(), b.getPrecio());
-	      	    /*
-	      	    if (a.getPrecio() == (b.getPrecio())) {
-	      	    	similarity += 0.15;
 	      	    }*/
+				//descripción
+				if (b.getDescripcion().contains(consulta)) {
+					similarity += 0.50;
+				}
+				//precio
+	      	    similarity += priceSimilarity(a.getPrecio(), b.getPrecio());
+	      	    //categoría
 	      	    if (a.getCategoria().equals(b.getCategoria())) {
 	      	    	similarity += 0.35;
 	      	    }
+
 	      	    if(similarity > 0.50 && !lista.contains(b) && !lista2.contains(b))
 	            	lista2.add(b);
 	    	}
@@ -52,6 +55,5 @@ public class RecommenderService {
 		double a = Math.max(precio, precio1);
 		double sim = max * Math.sqrt(1 - ((10 * Math.pow(x, 2)) / (m * Math.pow(a, 2))));
     	return sim > 0 ? sim : 0;
-		//return -1/(3 * (Math.max(precio, precio1))) * Math.pow(precio1 - precio, 2) + 0.17;
 	}
 }
