@@ -69,6 +69,13 @@ public class ListadoController {
 	    return "detallesArticulo";
 	 }
 	 
+
+	 @RequestMapping("/error/")
+	 public String error(Model modelo) {
+		 
+		 return "error";
+	 }
+	 
 	 //Esto para los filtros
 	 public String opcionesFiltro() { 
 		return null; 
