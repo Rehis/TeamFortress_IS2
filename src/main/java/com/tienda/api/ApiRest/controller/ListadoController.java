@@ -43,7 +43,7 @@ public class ListadoController {
 	    lista.addAll(rec(recomendados, true));
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
-	 }
+	}
 
 	private List<Pair<Articulo, Boolean>> rec(List<Articulo> items, boolean recommended) {
 		List<Pair<Articulo, Boolean>> ret = new ArrayList<>();
@@ -53,10 +53,11 @@ public class ListadoController {
 		return ret;
 	}
 
-	@RequestMapping("/filtrar")
-	 public String filtrar(Model modelo, @RequestParam("categoria")String[] categoria) {
-	    List<Articulo> lista = articuloService.filtrar(categoria);
-	    //recommender
+	@RequestMapping("/filtrar/{q}")
+	 public String filtrar(Model modelo, @PathVariable("q")String[] categoria) {
+		List<Pair<Articulo, Boolean>> lista = new ArrayList<>();
+	    List<Articulo> filtrados = articuloService.filtrar(categoria);
+	    lista.addAll(rec(filtrados, false));
 	    modelo.addAttribute("listado", lista);
 	    return "listado";
 	 }
