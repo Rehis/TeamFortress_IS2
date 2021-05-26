@@ -87,7 +87,7 @@ public class Articulo {
 		return imagen;
 	}
 
-	public void setImagen(String Imagen){
+	public void setImagen(String imagen){
 		this.imagen = imagen;
 	}
 
