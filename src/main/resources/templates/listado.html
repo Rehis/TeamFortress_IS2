@@ -52,6 +52,12 @@
                     <div th:unless="${articulo.second}" class="card">
                         <div class="card-body">
                             <h5 th:text="${articulo.first.nombre}" class="card-title text-center"></h5>
+                            <p>
+                                <div style"width:100%" align=center>
+                                    
+                                    <img src="https://mejorconsalud.as.com/wp-content/uploads/2018/09/huevos-gallina.jpg" width="100%" height="100%">
+                                  </div>
+                            </p>
                             <p th:text="${articulo.first.precio}" class="card-text"></p>
                         </div>
                         <div class="card-footer text-muted">
@@ -60,6 +66,12 @@
                    </div>
                         <div th:if="${articulo.second}" class="card recommended">
                             <div class="card-body">
+                                <p>
+                                    <div style"width:100%" align=center>
+                                        
+                                        <img src="${articulo.imagen}" width="100%" height="100%">
+                                      </div>
+                                </p>
                                 <h5 th:text="${articulo.first.nombre}" class="card-title text-center"></h5>
                                 <p th:text="${articulo.first.precio}" class="card-text"></p>
                             </div>

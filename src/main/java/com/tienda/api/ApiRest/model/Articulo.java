@@ -1,6 +1,5 @@
 package com.tienda.api.ApiRest.model;
 
-import java.net.URL;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
