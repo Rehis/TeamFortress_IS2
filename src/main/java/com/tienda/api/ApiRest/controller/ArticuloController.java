@@ -3,7 +3,7 @@ package com.tienda.api.ApiRest.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.tienda.api.ApiRest.model.*;
 import com.tienda.api.ApiRest.service.ArticuloService;

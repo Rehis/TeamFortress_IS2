@@ -32,6 +32,13 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 th:text="${articulo.nombre}" class="card-title text-center"></h5>
+                            <p>
+                                <div style"width:100%" align=center>
+                                    
+                                    <img src="http://drive.google.com/uc?export=view&id=1sv-V4PBadO19Ogcj3GtuxzfjdT2puP5_" width="50%" height="50%">
+                                  </div>
+                            </p>
+                            <img th:scr="${articulo.imagen}">
                             <p th:text="${articulo.precio}" class="card-text"></p>
                             <p th:text="${articulo.categoria}" class="card-text"></p>
                             <p th:text="${articulo.descripcion}" class="card-text"></p>

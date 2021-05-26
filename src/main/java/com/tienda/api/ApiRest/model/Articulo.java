@@ -1,5 +1,7 @@
 package com.tienda.api.ApiRest.model;
 
+import java.net.URL;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,8 @@ public class Articulo {
 	private String categoria;
 	
 	private String descripcion;
+
+	private String imagen;
 	
 	
 	public Articulo() {}
@@ -26,7 +30,7 @@ public class Articulo {
 	@Override
 	public String toString() {
 		return "Articulo [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", categoria=" + categoria
-				+ ", descripcion=" + descripcion + "]";
+				+ ", descripcion=" + descripcion + ", imagen=" + imagen;
 	}
 
 
@@ -78,8 +82,14 @@ public class Articulo {
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	
-	
-	
-	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String Imagen){
+		this.imagen = imagen;
+	}
+
 }
