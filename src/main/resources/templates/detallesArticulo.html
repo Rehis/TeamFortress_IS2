@@ -34,17 +34,12 @@
                             <h5 th:text="${articulo.nombre}" class="card-title text-center"></h5>
                             <p>
                                 <div style"width:100%" align=center>
-                                    
-                                    <img src="${articulo.imagen}" width="100%" height="100%">
+                                    <img th:src="${articulo.imagen}" width="100%" height="100%">
                                   </div>
                             </p>
-                            <!-- <img th:scr="${articulo.imagen}">-->
                             <p th:text="${articulo.precio}" class="card-text"></p>
                             <p th:text="${articulo.categoria}" class="card-text"></p>
                             <p th:text="${articulo.descripcion}" class="card-text"></p>
-                            <p th:text="${articulo.imagen}" class="card-text"></p>
-                            <!-- Cargamos la imagen -->
-                            <!--<img th:scr="${articulo.imagen}">-->
                         </div>
                     </div>
                 </div>
