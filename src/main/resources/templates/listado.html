@@ -55,7 +55,7 @@
                             <p>
                                 <div style"width:100%" align=center>
                                     
-                                    <img th:src="${articulo.imagen}" width="100%" height="100%">
+                                    <img th:src="${articulo.first.imagen}" width="100%" height="100%">
                                   </div>
                             </p>
                             <p th:text="${articulo.first.precio}" class="card-text"></p>
@@ -69,7 +69,7 @@
                                 <p>
                                     <div style"width:100%" align=center>
                                         
-                                        <img th:src="${articulo.imagen}" width="100%" height="100%">
+                                        <img th:src="${articulo.first.imagen}" width="100%" height="100%">
                                       </div>
                                 </p>
                                 <h5 th:text="${articulo.first.nombre}" class="card-title text-center"></h5>
