@@ -1,12 +1,17 @@
 package com.tienda.api.ApiRest.service;
 
-import com.tienda.api.ApiRest.model.Usuario;
+import java.util.List;
 
+import com.tienda.api.ApiRest.model.Usuario;
+import com.tienda.api.ApiRest.repository.UsuarioRepository;
+import org.springframework.stereotype.Service;
+
+@Service
 public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
-    public UsuarioService(UsuarioRepository ar) {
-        this.usuarioRepository = ar;
+    public UsuarioService(UsuarioRepository ur) {
+        this.usuarioRepository = ur;
     }
 
     public Usuario guardar(Usuario a) {
