@@ -38,7 +38,7 @@ public class Usuario {
 		this.mail = mail;
 	}
 	
-	public boolean getAdmin() {
+	public boolean isAdmin() {
 		return this.admin;
 	}
 	
