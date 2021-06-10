@@ -13,20 +13,22 @@
         <title>Tienda</title>
     </head>
     <body class="bg-secondary">
+        <nav class="navbar navbar-dark bg-dark"></nav>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" th:href="@{/}">
-                    <img th:src="@{/img/logo.png}" alt="" width="30" height="24">
+                    <img th:src="@{/img/logo.png}" alt="" width="30" height="30">
                     Tienda 
                 </a>
-                <a th:href='@{/articulos/crear}' class='btn btn-outline-success'>Añadir Articulo ✚</a>
+                <a th:href='@{/articulos/crear}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Añadir Articulo ✚</a>
                 <form th:action="@{/buscar}" class="d-flex">
-                    <input autofocus="autofocus" name="q" class="form-control me-2" type="search" th:placeholder="${param.q}" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    <input autofocus="autofocus" name="q" class="form-control me-2" style="border-color:grey;" type="search" th:placeholder="${param.q}" aria-label="Search">
+                    <button class="btn btn-outline-success" style="border-color:grey; color:grey; background-color: gainsboro;" type="submit">Buscar</button>
                 </form>
             </div>
         </nav>
-		<nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark"></nav>
+		<nav class="navbar navbar-white bg-white">
             <div class="container-fluid">
             	<a class="navbar-brand">
                     Filtrado por categorías 
@@ -40,7 +42,7 @@
                     </select>-->
                 </a>
                 
-                <a th:href='@{/}' class="btn btn-primary" style="background-color: transparent;">Quitar filtro</a>
+                <a th:href='@{/}' class="btn btn-primary" style="background-color: transparent; color:dodgerblue">Quitar filtro</a>
                 <a th:href='@{/filtrar/{q}(q=Comida)}' class="btn btn-primary">Comida</a>
                 <a th:href='@{/filtrar/{q}(q=Mobiliario)}' class="btn btn-primary">Mobiliario</a>
                 <a th:href='@{/filtrar/{q}(q=Limpieza)}' class="btn btn-primary">Limpieza</a>

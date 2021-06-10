@@ -12,20 +12,21 @@
         <title>Tienda</title>
     </head>
     <body class="bg-secondary">
+        <nav class="navbar navbar-dark bg-dark"></nav>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" th:href="@{/}">
-                    <img th:src="@{/img/logo.png}" alt="" width="30" height="24">
+                    <img th:src="@{/img/logo.png}" alt="" width="30" height="30">
                     Tienda 
                 </a>
-                <a th:href='@{/articulos/crear}' class='btn btn-outline-success'>Añadir Articulo ✚</a>
+                <a th:href='@{/articulos/crear}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Añadir Articulo ✚</a>
                 <form th:action="@{/buscar}" class="d-flex">
-                    <input autofocus="autofocus" name="q" class="form-control me-2" type="search" th:placeholder="${param.q}" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    <input autofocus="autofocus" name="q" class="form-control me-2" style="border-color:grey;" type="search" th:placeholder="${param.q}" aria-label="Search">
+                    <button class="btn btn-outline-success" style="border-color:grey; color:grey; background-color: gainsboro;" type="submit">Buscar</button>
                 </form>
             </div>
         </nav>
-        
+        <nav class="navbar navbar-dark bg-dark"></nav>
         <div class='container mt-4 vj-destacados'>
             <div class='row'>
                 <div th:each="articulo : ${detallesArticulo}" class='col-md-3 mb-4'>
@@ -37,7 +38,7 @@
                                     <img th:src="${articulo.imagen}" width="100%" height="100%">
                                   </div>
                             </p>
-                            <p th:text="${articulo.precio}" class="card-text"></p>
+                            <p th:text="${articulo.precio}" class="card-text"> euros</p>
                             <p th:text="${articulo.categoria}" class="card-text"></p>
                             <p th:text="${articulo.descripcion}" class="card-text"></p>
                         </div>
