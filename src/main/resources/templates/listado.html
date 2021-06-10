@@ -19,7 +19,7 @@
                     <img th:src="@{/img/logo.png}" alt="" width="30" height="24">
                     Tienda 
                 </a>
-                <a th:href='@{/articulos/crear}' class='btn btn-outline-success'>Añadir Articulo</a>
+                <a th:href='@{/articulos/crear}' class='btn btn-outline-success'>Añadir Articulo ✚</a>
                 <form th:action="@{/buscar}" class="d-flex">
                     <input autofocus="autofocus" name="q" class="form-control me-2" type="search" th:placeholder="${param.q}" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -30,7 +30,17 @@
             <div class="container-fluid">
             	<a class="navbar-brand">
                     Filtrado por categorías 
+                    <!--        FILTRADO CON SELECTOR -- No funciona el enlace al filtrado
+                    <select class="form-control">
+                        <option th:href='@{/}'>Sin Filtrado </option>
+                        <option th:href='@{/filtrar/{q}(q=Comida)}'>Comida</option> 
+                        <option th:href='@{/filtrar/{q}(q=Mobiliario)}'>Mobiliario</option> 
+                        <option th:href='@{/filtrar/{q}(q=Limpieza)}'>Limpieza</option> 
+                        <option th:href='@{/filtrar/{q}(q=Otros)}'>Otros</option> 
+                    </select>-->
                 </a>
+                
+                <a th:href='@{/}' class="btn btn-primary" style="background-color: transparent;">Quitar filtro</a>
                 <a th:href='@{/filtrar/{q}(q=Comida)}' class="btn btn-primary">Comida</a>
                 <a th:href='@{/filtrar/{q}(q=Mobiliario)}' class="btn btn-primary">Mobiliario</a>
                 <a th:href='@{/filtrar/{q}(q=Limpieza)}' class="btn btn-primary">Limpieza</a>
