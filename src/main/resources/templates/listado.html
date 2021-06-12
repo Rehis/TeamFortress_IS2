@@ -21,7 +21,15 @@
                     <img th:src="@{/img/logo.png}" alt="" width="30" height="30">
                     Tienda
                 </a>
-                <a th:href='@{/usuarios/registrar}' style="border-color:grey; color:grey; background-color: gainsboro;" class='btn btn-outline-success'>Iniciar Sesión | Registrarse</a>
+                <div>
+                    <!--
+                        faltaría que solo salga un boton, depende de si se esta registrado o no, y de si es admin o no
+                        <form th:if="${usuario == null}" th:action="@{/usuarios/login}"></form>
+                    -->
+                    <a th:href='@{/articulos/crear}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Añadir Articulo ✚</a>
+                    <a th:href='@{/usuarios/registrar}' style="border-color:grey; color:grey; background-color: gainsboro;" class='btn btn-outline-success'>Iniciar Sesión | Registrarse</a>
+                </div>
+                
                 <form th:action="@{/buscar}" class="d-flex">
                     <input autofocus="autofocus" name="q" class="form-control me-2" style="border-color:grey;" type="search" th:placeholder="${param.q}" aria-label="Search">
                     <button class="btn btn-outline-success" style="border-color:grey; color:grey; background-color: gainsboro;" type="submit">Buscar</button>

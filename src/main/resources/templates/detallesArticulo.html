@@ -17,9 +17,13 @@
             <div class="container-fluid">
                 <a class="navbar-brand" th:href="@{/}">
                     <img th:src="@{/img/logo.png}" alt="" width="30" height="30">
-                    Tienda 
+                    Tienda
                 </a>
-                <a th:href='@{/articulos/crear}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Añadir Articulo ✚</a>
+                <div>
+                    <a th:href='@{/articulos/crear}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Añadir Articulo ✚</a>
+                    <a th:href='@{/usuarios/registrar}' style="border-color:grey; color:grey; background-color: gainsboro;" class='btn btn-outline-success'>Iniciar Sesión | Registrarse</a>
+                </div>
+                
                 <form th:action="@{/buscar}" class="d-flex">
                     <input autofocus="autofocus" name="q" class="form-control me-2" style="border-color:grey;" type="search" th:placeholder="${param.q}" aria-label="Search">
                     <button class="btn btn-outline-success" style="border-color:grey; color:grey; background-color: gainsboro;" type="submit">Buscar</button>
@@ -28,7 +32,9 @@
         </nav>
         <nav class="navbar navbar-dark bg-dark"></nav>
         <nav class="navbar navbar-white bg-white">
-            <a th:href='@{/}' class="btn btn-primary" style="background-color: transparent; color:dodgerblue">🠔 Volver atrás</a>
+            <div class="container-fluid">
+                <a th:href='@{/}' class="btn btn-primary" style="background-color: transparent; color:dodgerblue">🠔 Volver atrás</a>
+            </div>
         </nav>
         
         <div class='container mt-4 vj-destacados'>
