@@ -37,14 +37,15 @@
     <div class='row'>
         <div class="col-md-12">
             <h1>Iniciar Sesión</h1>
-                <form th:if="${usuario == null}" th:action="@{/usuarios/login}">
+                <!-- <form th:if="${usuario == null}" th:action="@{/usuarios/login}">-->
+                <form th:action="@{/usuarios/login}">
                     <div class="form-group mb-3">
                         <label>mail</label>
-                        <input autofocus="autofocus" name="m" class="form-control" style="border-color:grey;" type="text" th:placeholder="${param.m}" aria-label="mail" placeholder="e-mail">
+                        <input autofocus="autofocus" name="m" class="form-control" style="border-color:grey;" type="text" placeholder="e-mail" th:placeholder="${param.m}" aria-label="mail">
                     </div>
                     <div class="form-group mb-3">
                         <label>contraseña</label>
-                        <input autofocus="autofocus" name="p" class="form-control" style="border-color:grey;" type="password" th:placeholder="${param.p}" aria-label="password" placeholder="contraseña">
+                        <input autofocus="autofocus" name="p" class="form-control" style="border-color:grey;" type="password" placeholder="contraseña" th:placeholder="${param.p}" aria-label="password">
                     </div>
                     <div class="form-group mb-3">
                         <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
