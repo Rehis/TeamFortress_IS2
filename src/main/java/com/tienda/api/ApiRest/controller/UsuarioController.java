@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.tienda.api.ApiRest.model.*;
 import com.tienda.api.ApiRest.service.UsuarioService;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class UsuarioController {
@@ -18,7 +21,7 @@ public class UsuarioController {
         this.usuarioService = usuario;
     }
 
-    @RequestMapping("/usuarios/crear")
+    @RequestMapping("/usuarios/registrar")
     public String mostrarFormAlta(Model modelo) {
         modelo.addAttribute("usuario", new Usuario());
         return "formUsuario";
@@ -26,18 +29,25 @@ public class UsuarioController {
 
     @PostMapping("/usuarios/guardar")
     public String guardar(Usuario u) {
-        //System.out.println(a);
         usuarioService.guardar(u);
         return "redirect:/";
     }
 
     @RequestMapping("/usuarios/login")
-    public String iniciarSesion(Model modelo) {
-        return "listado";
+    public String iniciarSesion(Model modelo, @RequestParam("m")String mail, @RequestParam("p")String password) {
+        List<Usuario> usuarios = usuarioService.buscar(mail);
+        for (Usuario u : usuarios) {
+            if (u.getPassword().equals(password)) {
+                modelo.addAttribute("usuario", u);
+                break;
+            }
+        }
+        return "redirect:/";
     }
 
     @RequestMapping("/logout")
     public String cerrarSesion(Model modelo) {
-        return "listado";
+        modelo.addAttribute("usuario", null);
+        return "redirect:/";
     }
 }

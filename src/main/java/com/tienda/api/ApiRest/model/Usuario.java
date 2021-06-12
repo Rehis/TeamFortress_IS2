@@ -22,7 +22,7 @@ public class Usuario {
 		return "[Id: " + id + ", Mail: " + mail + ", Admin: " + adm + "]"; 
 	}
 	
-	String getId() {
+	public String getId() {
 		return this.id;
 	}
 	
@@ -30,7 +30,7 @@ public class Usuario {
 		this.id = id;
 	}
 	
-	String getPassword() {
+	public String getPassword() {
 		return this.password;
 	}
 	
@@ -38,7 +38,7 @@ public class Usuario {
 		this.password = password;
 	}
 	
-	String getMail() {
+	public String getMail() {
 		return this.mail;
 	}
 	
