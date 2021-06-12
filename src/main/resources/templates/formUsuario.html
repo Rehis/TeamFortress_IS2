@@ -12,19 +12,51 @@
     <title>Tienda</title>
 </head>
 <body class="bg-secondary">
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">
-            <img th:src="@{/img/logo.png}" alt="" width="30" height="24">
-            Tienda
-        </a>
-        <form th:action="@{/buscar}" class="d-flex">
-            <input autofocus="autofocus" name="q" class="form-control me-2" type="search" th:placeholder="${param.q}" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-    </div>
-</nav>
+    <nav class="navbar navbar-dark bg-dark"></nav>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/img/logo.png}" alt="" width="30" height="30">
+                    Tienda
+                </a>
+                <form th:action="@{/buscar}" class="d-flex">
+                    <input autofocus="autofocus" name="q" class="form-control me-2" style="border-color:grey;" type="search" th:placeholder="${param.q}" aria-label="Search">
+                    <button class="btn btn-outline-success" style="border-color:grey; color:grey; background-color: gainsboro;" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    <nav class="navbar navbar-dark bg-dark"></nav>
 
+    <nav class="navbar navbar-white bg-white">
+        <div class="container-fluid">
+            <a th:href='@{/}' class="btn btn-primary" style="background-color: transparent; color:dodgerblue">🠔 Volver atrás</a>
+        </div>
+    </nav>
+
+<div class='container mt-4 vj-destacados'>
+    <div class='row'>
+        <div class="col-md-12">
+            <h1>Iniciar Sesión</h1>
+                <form th:if="${usuario == null}" th:action="@{/usuarios/login}">
+                    <div class="form-group mb-3">
+                        <label>mail</label>
+                        <input autofocus="autofocus" name="m" class="form-control" style="border-color:grey;" type="text" th:placeholder="${param.m}" aria-label="mail" placeholder="e-mail">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>contraseña</label>
+                        <input autofocus="autofocus" name="p" class="form-control" style="border-color:grey;" type="password" th:placeholder="${param.p}" aria-label="password" placeholder="contraseña">
+                    </div>
+                    <div class="form-group mb-3">
+                        <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+                    </div>
+                </form>
+                <!-- CERRAR SESION -->
+                <!---
+                <a th:if="${usuario != null}" th:href='@{/logout}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Cerrar Sesión</a>
+                -->
+        </div>
+    </div>
+</div>
 <div class='container mt-4 vj-destacados'>
     <div class='row'>
         <div class="col-md-12">
@@ -36,7 +68,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="password">contraseña</label>
-                    <input th:field="*{password}" type="password" class="form-control" id="password" placeholder="Contraseña">
+                    <input th:field="*{password}" type="password" class="form-control" id="password" placeholder="contraseña">
                 </div>
                 <div class="form-group mb-3">
                     <label for="admin">tipo de usuario</label>

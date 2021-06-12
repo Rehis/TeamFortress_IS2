@@ -14,28 +14,21 @@
         <title>Tienda</title>
     </head>
     <body class="bg-secondary">
+        <nav class="navbar navbar-dark bg-dark"></nav>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" th:href="@{/}">
                     <img th:src="@{/img/logo.png}" alt="" width="30" height="30">
                     Tienda
                 </a>
+                <a th:href='@{/usuarios/registrar}' style="border-color:grey; color:grey; background-color: gainsboro;" class='btn btn-outline-success'>Registrarse</a>
                 <form th:action="@{/buscar}" class="d-flex">
                     <input autofocus="autofocus" name="q" class="form-control me-2" style="border-color:grey;" type="search" th:placeholder="${param.q}" aria-label="Search">
                     <button class="btn btn-outline-success" style="border-color:grey; color:grey; background-color: gainsboro;" type="submit">Buscar</button>
                 </form>
-                <a  th:if="${usuario?.admin}" th:href='@{/articulos/crear}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Añadir Articulo ✚</a>
-                <div>
-                    <form th:if="${usuario == null}" th:action="@{/usuarios/login}" class="d-flex">
-                        <input autofocus="autofocus" name="m" class="form-control me-2" style="border-color:grey;" type="text" th:placeholder="${param.m}" aria-label="mail">
-                        <input autofocus="autofocus" name="p" class="form-control me-2" style="border-color:grey;" type="password" th:placeholder="${param.p}" aria-label="password">
-                        <button class="btn btn-outline-success" style="border-color:grey; color:grey; background-color: gainsboro;" type="submit">Iniciar Sesión</button>
-                    </form>
-                    <a th:if="${usuario != null}" th:href='@{/logout}' class='btn btn-outline-success' style="border-color:grey; color:grey; background-color: gainsboro;">Cerrar Sesión</a>
-                </div>
-                <a th:href='@{/usuarios/registrar}' class='btn btn-outline-success'>Registrarse</a>
             </div>
         </nav>
+        <nav class="navbar navbar-dark bg-dark"></nav>
 		<nav class="navbar navbar-white bg-white">
             <div class="container-fluid">
             	<a class="navbar-brand">
